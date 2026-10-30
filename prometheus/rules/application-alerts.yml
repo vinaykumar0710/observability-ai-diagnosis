@@ -1,0 +1,40 @@
+﻿groups:
+  - name: application-alerts
+    rules:
+      - alert: ApplicationDown
+        expr: up{job="observability-app"} == 0
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Observability application is unavailable"
+          description: "Prometheus cannot scrape the application metrics endpoint."
+
+      - alert: HighErrorRate
+        expr: |
+          (
+            sum(rate(app_http_requests_total{job="observability-app",status=~"5.."}[1m]))
+            /
+            clamp_min(sum(rate(app_http_requests_total{job="observability-app"}[1m])), 0.001)
+          ) > 0.10
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Application HTTP 5xx error rate is high"
+          description: "More than 10% of observed application requests are returning 5xx responses."
+
+      - alert: HighLatency
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum by (le) (
+              rate(app_http_request_duration_seconds_bucket{job="observability-app"}[1m])
+            )
+          ) > 1
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Application p95 latency exceeds one second"
+          description: "The 95th percentile request latency has exceeded one second."

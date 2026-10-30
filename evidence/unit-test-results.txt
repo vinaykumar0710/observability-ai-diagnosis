@@ -1,0 +1,10 @@
+test_application_down (test_diagnosis_engine.TestDiagnosisEngine.test_application_down) ... ok
+test_high_error_rate (test_diagnosis_engine.TestDiagnosisEngine.test_high_error_rate) ... ok
+test_high_latency (test_diagnosis_engine.TestDiagnosisEngine.test_high_latency) ... ok
+test_missing_error_rate_evidence (test_diagnosis_engine.TestDiagnosisEngine.test_missing_error_rate_evidence) ... ok
+test_unknown_alert (test_diagnosis_engine.TestDiagnosisEngine.test_unknown_alert) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
