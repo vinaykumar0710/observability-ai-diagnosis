@@ -1,4 +1,4 @@
-﻿# Observability & Evidence-Based Incident Diagnosis Platform
+# Observability & Evidence-Based Incident Diagnosis Platform
 
 A containerized observability platform that monitors application health, detects operational issues, and generates evidence-based incident diagnoses using live Prometheus metrics.
 
@@ -19,6 +19,22 @@ The diagnosis engine uses deterministic, rule-based logic rather than an externa
 5. **Diagnosis Engine** evaluates firing alerts against collected evidence.
 6. **Diagnosis API** returns the likely root cause, supporting evidence, confidence level, and remediation recommendations.
 
+## Project Screenshots
+
+### 1. Grafana Observability Dashboard
+![Grafana Dashboard](screenshots/grafana-dashboard.png)
+
+### 2. Prometheus Alert Rules
+![Prometheus Alerts](screenshots/prometheus-alerts.png)
+
+### 3. Docker Compose Services
+![Docker Compose Services](screenshots/docker-compose-services.png)
+
+### 4. Healthy Diagnosis API
+![Healthy Diagnosis API](screenshots/diagnosis-api-healthy-state.png)
+
+### 5. Failure Detection and Incident Diagnosis
+![Failure Diagnosis](screenshots/diagnosis-api-failure-state.png)
 ## Technology Stack
 
 - Python and Flask
@@ -93,7 +109,7 @@ The diagnosis engine evaluates this evidence and returns:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/observability-ai-diagnosis.git
+git clone https://github.com/vinaykumar0710/observability-ai-diagnosis.git
 cd observability-ai-diagnosis
 ```
 
@@ -121,7 +137,7 @@ docker compose ps
 ### Run Unit Tests
 
 ```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+..venvScriptspython.exe -m unittest discover -s tests -v
 ```
 
 ## Failure Simulation
@@ -181,3 +197,7 @@ The diagnosis engine includes unit tests covering:
 ---
 
 **Note:** This project demonstrates application observability, metrics-driven alerting, and deterministic incident diagnosis in a containerized environment.
+
+
+
+
